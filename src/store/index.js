@@ -5,8 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    ideas: {},
   },
   mutations: {
+    CREATE_IDEAS(state, payload){
+      const id = Date.now();
+      state.ideas[id] = payload;
+    }
   },
   actions: {
   },
