@@ -14,6 +14,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    createIdea(context, payload) {
+      context.commit("CREATE_IDEAS", payload);
+    }
   },
   modules: {
   }

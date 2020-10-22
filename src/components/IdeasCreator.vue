@@ -22,7 +22,8 @@
           createAt: new Date(),
           title: this.title
         };
-        this.$store.commit("CREATE_IDEAS", idea)
+        //this.$store.commit("CREATE_IDEAS", idea) >>ici on commit directement dans la mutation les chagements.
+        this.$store.dispatch("createIdea", idea);
         this.title = "";
       }
     },
