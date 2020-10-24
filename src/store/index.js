@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     ideas: {},
+    courses: [],
+    paperWork: [],
+    creatives: []
   },
   mutations: {
     CREATE_IDEAS(state, payload){
@@ -15,6 +18,15 @@ export default new Vuex.Store({
     },
     SAVE_IDEAS_ORDERING(state, payload) {
       state.ideas = { ...payload };
+    },
+    SAVE_COURSES_ORDERING(state, payload) {
+      state.courses = [ ...payload ];
+    },
+    SAVE_PAPERWORK_ORDERING(state, payload) {
+      state.paperWork = [ ...payload];
+    },
+    SAVE_CREATIVE_ORDERING(state, payload) {
+      state.creatives = [...payload];
     }
   },
   actions: {
@@ -27,6 +39,15 @@ export default new Vuex.Store({
         ideas[idea.id] = idea;
       });
       context.commit("SAVE_IDEAS_ORDERING", ideas)
+    },
+    saveCoursesOrdering(context, payload) {
+      context.commit("SAVE_COURSES_ORDERING", payload);
+    },
+    SavePaperWorkOrdering(context, payload) {
+      context.commit("SAVE_PAPERWORK_ORDERING", payload);
+    },
+    SaveCreativeOrdering(context, payload) {
+      context.commit("SAVE_CREATIVE_ORDERING", payload);
     }
   },
   getters: {
@@ -37,6 +58,15 @@ export default new Vuex.Store({
         return idea;
       });
       return allIdeas;
+    },
+    courses(state) {
+      return state.courses;
+    },
+    paperWork(state) {
+      return state.paperWork;
+    },
+    creatives(state) {
+      return state.creatives;
     }
   }
 })
